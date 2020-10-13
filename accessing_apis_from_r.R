@@ -50,5 +50,20 @@ library(RSocrata)
 tmp <- read.socrata(url, stringsAsFactors = FALSE)
 str(tmp)
 
-table(tmp$zip_code)
+tmp$rep_time <- as.numeric(tmp$rep_time)
 
+hist(tmp$rep_time)
+
+
+sort(table(tmp$crime_type))
+
+
+
+str(tmp)
+
+library(dplyr)
+tmp <- tmp %>% filter(zip_code == "78750")
+
+
+
+summary(tmp)
